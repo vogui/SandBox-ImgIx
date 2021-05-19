@@ -1,0 +1,101 @@
+.elementContainer {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 15%;
+  margin-left: 5px;
+  max-height: 350px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  @media (max-width: 600px) {
+    width: 25%;
+  }
+}
+.dropDown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 25%;
+  height: 60px;
+  outline: none;
+}
+.dropButtom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: 55px;
+  border-radius: 20px;
+  outline: none;
+  font-family: "Times New Roman";
+  font-size: 15px;
+}
+.dropItem {
+  color: gray;
+  text-decoration: none;
+  text-align: center;
+}
+.element {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  height: 10px;
+}
+.icon {
+  width: 100%;
+  height: 15px;
+  color: gray;
+}
+.iconPlus {
+  margin-top: 10px;
+  width: 30%;
+  height: 30px;
+  color: gray;
+  cursor: pointer;
+}
+.iconX {
+  width: 15%;
+  height: 30px;
+  color: gray;
+  cursor: pointer;
+}
+.iconSearch{
+    width: 20%;
+    height: 16px;
+    color: gray;
+    cursor: pointer;
+  }
+
+.url {
+  font-size: 90%;
+  color: black;
+  font-family: "Times New Roman";
+  text-decoration: none;
+  width: 90%;
+  text-overflow: ellipsis;
+  @media (max-width: 600px) {
+    font-size: 70%;
+  }
+}
+.urlDownload {
+  font-size: 20px;
+  color: black;
+  padding: 0.5em;
+  font-family: "Times New Roman";
+  text-decoration: none;
+  text-align: center;
+}
+
+.iconController {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
