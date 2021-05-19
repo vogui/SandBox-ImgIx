@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile, colors} from "../Helper/styleHelper";
+import { mobile, colors } from "../Helper/styleHelper";
 
 export const Container = styled.div`
   width: 100%;

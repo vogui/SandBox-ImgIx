@@ -20,6 +20,9 @@ import {
   ElementHistory,
   ButtomDownload,
   Menu,
+  DropDownContainer,
+  Recommendation,
+  Recommend
 } from "./styled";
 import axios from "axios";
 import ImgixClient from "@imgix/js-core";
@@ -33,6 +36,7 @@ import {
   FaPlusCircle,
   FaTimesCircle,
   FaFileArchive,
+  FaArrowDown
 } from "react-icons/fa";
 import "./index.css";
 
@@ -58,6 +62,7 @@ const SandBox = () => {
       if (item.url.includes(value)) {
         return item;
       }
+      return null
     });
     setImgToShow(img[0]);
     setValue('');
@@ -95,6 +100,7 @@ const SandBox = () => {
       if (id !== i) {
         return ele;
       }
+      return null
     });
     delete imgParams[key];
     if (array === elements) {
@@ -137,16 +143,21 @@ const SandBox = () => {
         <Buttom onClick={() => setShow(!show)}>
           {textObj.images} <FaFileImage />
         </Buttom>
-        <DropDown show={show}>
-          {imgEx
-            ? imgEx.map((img, key) => (
-              <Url onClick={() => handleValue(img.url)}>
-                <PUrl>{img.url}</PUrl>
-                <hr></hr>
-              </Url>
-            ))
-            : null}
-        </DropDown>
+        {show
+          ?
+          <DropDownContainer>
+            {
+              imgEx.map((img, key) => (
+                <DropDown>
+
+                  <Url onClick={() => handleValue(img.url)}>
+                    <PUrl>{img.url}</PUrl>
+                  </Url>
+                </DropDown>
+              ))
+            }
+          </DropDownContainer>
+          : null}
         <Buttom onClick={() => setShowHis(!showHis)}>
           {textObj.history} <FaFileArchive />
         </Buttom>
@@ -233,7 +244,8 @@ const SandBox = () => {
                       onClick={() => handleDelete(ele, id, elements)}
                       title="Remove element"
                     />
-                  ) : null}
+                  ) : null
+                  }
                 </Element>
               );
             })}
@@ -245,7 +257,16 @@ const SandBox = () => {
               />
             </div>
           </ElementCCSContainer>
-        ) : null}
+        ) : (
+          <Recommendation>
+            <Recommend> We recommend you to go before start to edit go to</Recommend>
+            <FaArrowDown className="iconX"/>
+            <a href="https://docs.imgix.com/apis/rendering"
+          rel="noopener noreferrer"
+          className="urlReference"
+          target="_blank">https://docs.imgix.com/apis/rendering</a>
+            </Recommendation>
+          )}
       </MenuImg>
       <SpaceController>
         <WebImg

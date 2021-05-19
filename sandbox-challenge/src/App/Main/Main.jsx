@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <Container>
       <Header />
-      <SandBox/>  
+      <SandBox />
       <Footer />
     </Container>
   );

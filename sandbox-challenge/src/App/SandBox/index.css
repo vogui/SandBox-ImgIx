@@ -67,20 +67,25 @@
   color: gray;
   cursor: pointer;
 }
-.iconSearch{
-    width: 20%;
-    height: 16px;
-    color: gray;
-    cursor: pointer;
-  }
+.iconX {
+  width: 15%;
+  height: 30px;
+  color: white;
+}
+.iconSearch {
+  width: 20%;
+  height: 16px;
+  color: gray;
+  cursor: pointer;
+}
 
 .url {
   font-size: 90%;
   color: black;
   font-family: "Times New Roman";
   text-decoration: none;
-  width: 90%;
-  text-overflow: ellipsis;
+  width: 80%;
+  text-align: center;
   @media (max-width: 600px) {
     font-size: 70%;
   }
@@ -92,6 +97,15 @@
   font-family: "Times New Roman";
   text-decoration: none;
   text-align: center;
+}
+.urlReference {
+  font-size: 15px;
+  height: 50px;
+  color: white;
+  font-family: "Times New Roman";
+  text-decoration: none;
+  text-align:center;
+  word-wrap: break-word;
 }
 
 .iconController {

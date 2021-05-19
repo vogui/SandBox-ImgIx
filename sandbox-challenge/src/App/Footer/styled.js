@@ -18,6 +18,7 @@ export const Container = styled.div`
     flex-direction: column;
     height: 120px;
     justify-content: center;
+    background: ${colors.black_gray};
   }
 `;
 export const Contact = styled.div`

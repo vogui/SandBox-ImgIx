@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { colors, mobile } from "../Helper/styleHelper";
 
 export const Image = styled.img`
-@media (max-width: ${mobile}) {
-  width: 200px;
-  height: 200px;;
-}`;
+  @media (max-width: ${mobile}) {
+    width: 200px;
+    height: 200px;
+  }
+`;
 
 export const SpaceController = styled.div`
   width: 100%;
@@ -23,22 +24,29 @@ export const Container = styled.div`
     flex-direction: column-reverse;
   }
 `;
+
+export const Recommend = styled.p`
+  color: ${colors.white};
+  font-size: 12.5px;
+  font-family: "Times New Roman";
+`;
+
 export const Menu = styled.h1`
-color:${colors.white};
-font-size:100%
-font-family: "Times New Roman";
-margin-bottom:0;
-`
+  color:${colors.white};
+  font-size:100%
+  font-family: "Times New Roman";
+  margin-bottom:0;
+`;
 
 export const MenuImg = styled.div`
   width: 20%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   background: ${colors.gray};
-  height:800px;
+  height: 800px;
   @media (max-width: ${mobile}) {
-    height:500px;
+    height: 500px;
     width: 100%;
     justify-content: end;
   }
@@ -54,6 +62,12 @@ export const ImageContainer = styled.div`
   @media (max-width: ${mobile}) {
     height: 350px;
   }
+`;
+export const Recommendation = styled.div`
+  width: 95%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 `;
 
 export const DropContainer = styled.div`
@@ -95,11 +109,11 @@ export const Url = styled.div`
   font-family: Times New Roman;
   color: ${colors.black_gray};
   height: 50px;
-  width: 105%;
-  font-size: 100%;
+  width: 100%;
   margin-top: 5px;
   outline: none;
   cursor: pointer;
+  text-align: center;
 `;
 
 export const WebImg = styled.input`
@@ -125,30 +139,33 @@ export const Ele = styled.div`
   outline: none;
   cursor: pointer;
 `;
-export const PUrl = styled.p``;
+export const PUrl = styled.p`
+  width: 100%;
+`;
 
 export const DropDown = styled.div`
-  ${(props) => {
-    return !props.show ? `visibility: hidden` : `visibility: visible`;
-  }};
-  position: absolute;
-  top: 220px;
+  width: 90%;
+  height: 150px;
   display: flex;
+  margin-top: 10px;
+  margin-left: 5px;
+  border-radius: 10px;
+  background: ${colors.white};
+  word-wrap: break-word;
+`;
+export const DropDownContainer = styled.div`
+  width: 100%;
+  height: 400px;
+  font-size: 100%;
+  display: flex;
+  opacity: 1;
+  margin-top: 10px;
   flex-direction: column;
-  left:15px;
-  max-height: 350px;
-  transition: max-height 0.3s linear;
+  margin-left: 10%;
   overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 0 24px 24px;
-  box-sizing: border-box;
-  border: 1px solid ${colors.black};
-  border-top: none;
-  border-radius: 0 0 6px 6px;
-  margin: 0 auto;
-  width: 20%;
-  background: rgba(255, 255, 255, 0.85);
-  z-index: 1;
+  @media (max-width: ${mobile}) {
+    width: 90%;
+  }
   &::-webkit-scrollbar {
     width: 6px;
     @media (max-width: ${mobile}) {
@@ -157,11 +174,11 @@ export const DropDown = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: white;
+    opacity: 1;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: white;
+    opacity: 1;
   }
   &.hidden {
     max-height: 0;
@@ -176,15 +193,6 @@ export const DropDown = styled.div`
         width: 0;
       }
     }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: ${colors.black_gray};
-      border-radius: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: ${colors.white};
-    }
   }
 `;
 
@@ -198,7 +206,7 @@ export const InicialUrl = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  overflow: auto;
+  word-wrap: break-word;
 `;
 
 export const P = styled.p`
@@ -216,7 +224,7 @@ export const ElementCCSContainer = styled.div`
   background: ${colors.gray};
   flex-direction: column;
   overflow: auto;
-  margin-top:10px;
+  margin-top: 10px;
 `;
 
 export const ElementCCS = styled.input`
@@ -263,7 +271,6 @@ export const History = styled.div`
   align-items: center;
   justify-content: center;
   outline: none;
-
 `;
 
 export const HistoryContainer = styled.div`
@@ -274,5 +281,5 @@ export const HistoryContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  margin-top:10px;
+  margin-top: 10px;
 `;

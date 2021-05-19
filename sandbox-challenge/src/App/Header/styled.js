@@ -19,4 +19,10 @@ export const P = styled.p`
   font-size: 200%;
   margin: 0;
   color: ${colors.white};
+  margin-left:5%;
+`;
+
+export const Image = styled.img`
+  width: 50px;
+  height: 50px;
 `;
