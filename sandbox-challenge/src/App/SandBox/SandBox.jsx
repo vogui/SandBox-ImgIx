@@ -93,7 +93,6 @@ const SandBox = () => {
     }
   };
 
-  console.log(exist)
   const handleHistory = (params) => {
     setHistory([...history, params]);
     setImgParams({ h: 500, w: 500 });
