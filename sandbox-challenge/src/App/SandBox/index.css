@@ -1,18 +1,15 @@
+
 .elementContainer {
   display: flex;
   flex-direction: column;
   z-index: 2;
-  width: 15%;
+  width: 10%;
   margin-left: 5px;
   max-height: 350px;
   overflow: auto;
   display: flex;
-  flex-direction: column;
   background-color: white;
   border-radius: 5px;
-  @media (max-width: 600px) {
-    width: 25%;
-  }
 }
 .dropDown {
   display: flex;
@@ -44,7 +41,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 5px;
   margin-top: 5px;
   height: 10px;
@@ -67,11 +64,6 @@
   color: gray;
   cursor: pointer;
 }
-.iconX {
-  width: 15%;
-  height: 30px;
-  color: white;
-}
 .iconSearch {
   width: 20%;
   height: 16px;
@@ -85,10 +77,9 @@
   font-family: "Times New Roman";
   text-decoration: none;
   width: 80%;
+  height: 25px;
   text-align: center;
-  @media (max-width: 600px) {
-    font-size: 70%;
-  }
+  padding: 1px;
 }
 .urlDownload {
   font-size: 20px;
@@ -105,11 +96,16 @@
   font-family: "Times New Roman";
   text-decoration: none;
   text-align:center;
-  word-wrap: break-word;
 }
 
 .iconController {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+  .elementContainer {
+  width: 35%;
+  };
 }

@@ -22,7 +22,8 @@ import {
   Menu,
   DropDownContainer,
   Recommendation,
-  Recommend
+  Recommend,
+  Error
 } from "./styled";
 import axios from "axios";
 import ImgixClient from "@imgix/js-core";
@@ -39,6 +40,7 @@ import {
   FaArrowDown
 } from "react-icons/fa";
 import "./index.css";
+import _default from "react-bootstrap/esm/CardColumns";
 
 const client = new ImgixClient({
   domain: `${process.env.REACT_APP_IMAGE_URL_INICIAL}`,
@@ -56,6 +58,7 @@ const SandBox = () => {
   const [showEle, setShowEle] = useState(false);
   const [showHis, setShowHis] = useState(false);
   const [change, setChange] = useState(false);
+  const [exist, setExist] = useState(false)
 
   const handleValue = (value) => {
     let img = imgEx.filter((item) => {
@@ -69,18 +72,28 @@ const SandBox = () => {
   };
 
   const handleElement = (value, key) => {
-    if (key || key === 0) {
-      let newElements = elements;
-      newElements[key] = value;
-      let obj = { ...imgParams };
-      obj[value] = "";
-      setImgParams(obj);
-      setElements(newElements);
-      setChange(!change);
+    if (!elements.includes(value)) {
+      if (key || key === 0) {
+        let newElements = elements;
+        newElements[key] = value;
+        let obj = { ...imgParams };
+        obj[value] = "";
+        setImgParams(obj);
+        setElements(newElements);
+        setChange(!change);
+      } else {
+        setElements([...elements, value]);
+      }
     } else {
-      setElements([...elements, value]);
+      setExist(true)
+      setTimeout(() => {
+        setExist(false)
+      }, 2000)
+      setChange(!change)
     }
   };
+
+  console.log(exist)
   const handleHistory = (params) => {
     setHistory([...history, params]);
     setImgParams({ h: 500, w: 500 });
@@ -116,7 +129,8 @@ const SandBox = () => {
     let newElements = Object.keys(obj);
     console.log(newElements);
     setElements(newElements);
-    setShowEle(true);
+    setImgParams(obj)
+    setShowEle(true)
     setChange(!change);
   };
   const handleInput = (value) => {
@@ -148,8 +162,7 @@ const SandBox = () => {
           <DropDownContainer>
             {
               imgEx.map((img, key) => (
-                <DropDown>
-
+                <DropDown key={key}>
                   <Url onClick={() => handleValue(img.url)}>
                     <PUrl>{img.url}</PUrl>
                   </Url>
@@ -167,7 +180,7 @@ const SandBox = () => {
               {history.map((ele, id) => {
                 let nro = id + 1
                 return (
-                  <ElementHistory>
+                  <ElementHistory key={id}>
                     <History onClick={() => handleReBuild(ele)}>
                       <P>{textObj.history} {nro}</P>
                     </History>
@@ -195,7 +208,7 @@ const SandBox = () => {
           <ElementCCSContainer>
             {elements.map((ele, id) => {
               return (
-                <Element>
+                <Element key={id}>
                   <Dropdown className="dropDown">
                     <Dropdown.Toggle
                       variant="success"
@@ -207,9 +220,9 @@ const SandBox = () => {
                     <Dropdown.Menu className="elementContainer">
                       {params.map((par, key) => (
                         <div>
-                          {console.log(par, "par")}
                           <div className="element">
                             <Dropdown.Item
+                              key={key}
                               className="dropItem"
                               onClick={() => handleElement(par.value, id)}
                             >
@@ -255,16 +268,17 @@ const SandBox = () => {
                 onClick={() => handleElement("")}
                 title="Add element"
               />
+              {exist ? <Error>{textObj.error}</Error> : null}
             </div>
           </ElementCCSContainer>
         ) : (
-          <Recommendation>
-            <Recommend> We recommend you to go before start to edit go to</Recommend>
-            <FaArrowDown className="iconX"/>
-            <a href="https://docs.imgix.com/apis/rendering"
-          rel="noopener noreferrer"
-          className="urlReference"
-          target="_blank">https://docs.imgix.com/apis/rendering</a>
+            <Recommendation>
+              <Recommend>{textObj.recommed}</Recommend>
+              <FaArrowDown className="iconX" />
+              <a href="https://docs.imgix.com/apis/rendering"
+                rel="noopener noreferrer"
+                className="urlReference"
+                target="_blank">{textObj.url}</a>
             </Recommendation>
           )}
       </MenuImg>

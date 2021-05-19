@@ -29,6 +29,7 @@ export const Recommend = styled.p`
   color: ${colors.white};
   font-size: 12.5px;
   font-family: "Times New Roman";
+  margin-bottom:0
 `;
 
 export const Menu = styled.h1`
@@ -45,12 +46,19 @@ export const MenuImg = styled.div`
   align-items: center;
   background: ${colors.gray};
   height: 800px;
+  margin-top:20px;
   @media (max-width: ${mobile}) {
     height: 500px;
     width: 100%;
     justify-content: end;
   }
 `;
+export const Error = styled.p`
+color:${colors.white};
+word-wrap: break-word;
+text-align:center;
+font-family: "Times New Roman";
+`
 export const ImageContainer = styled.div`
   background: ${colors.black};
   width: 95%;
@@ -68,6 +76,7 @@ export const Recommendation = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
+  word-wrap: break-word;
 `;
 
 export const DropContainer = styled.div`
@@ -207,6 +216,9 @@ export const InicialUrl = styled.div`
   justify-content: center;
   border-radius: 10px;
   word-wrap: break-word;
+  @media (max-width: ${mobile}) {
+    overflow-y:scroll;
+  }
 `;
 
 export const P = styled.p`

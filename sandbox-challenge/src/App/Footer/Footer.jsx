@@ -2,6 +2,7 @@ import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { Container, Contact, A } from "./styled";
+import { textObj } from "../Helper/text"
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
       <Contact>
         <A href="https://github.com/vogui" target="_blank">
           <FaGithub />
-          /GuillermoVogeler
+          {textObj.name}
         </A>
       </Contact>
       <Contact>
@@ -18,13 +19,13 @@ const Footer = () => {
           target="_blank"
         >
           <FaLinkedinIn />
-          /GuillermoVogeler
+          {textObj.name}
         </A>
       </Contact>
       <Contact>
         <A href="mailto: guillevogemedialdea@gmail.com" target="_blank">
           <HiOutlineMail />
-          /Contact
+          {textObj.contact}
         </A>
       </Contact>
     </Container>

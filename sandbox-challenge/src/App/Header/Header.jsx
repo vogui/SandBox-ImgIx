@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, P , Image} from "./styled";
+import { textObj } from "../Helper/text"
 
 const Header = () => {
   return (
     <Container>
-      <Image src="https://pbs.twimg.com/profile_images/482658494399528960/m-ZnW-IG_400x400.png"></Image>
+      <Image src={textObj.img}></Image>
       <P>Sand Box Challenge</P>
     </Container>
   );

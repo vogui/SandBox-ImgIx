@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../Helper/styleHelper";
 
+
 export const Container = styled.div`
   position: fixed;
   top: 0;
